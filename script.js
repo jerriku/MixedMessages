@@ -1,3 +1,5 @@
+const q = document.getElementById("quote");
+const a = document.getElementById("author");
 let quotes = [];
 
 fetch("https://type.fit/api/quotes")
@@ -5,24 +7,20 @@ fetch("https://type.fit/api/quotes")
 .then(data => {
     quotes = data;
     const num = Math.floor(Math.random() * data.length);
-    console.log(num);
-    const q = document.getElementById("quote");
-    const a = document.getElementById("author");
+    // console.log(num);
     const quote = data[num].text;
     const author = data[num].author === null ? "unkown" : data[num].author;
     q.innerHTML = `"${quote}"`;
     a.innerHTML = author;
-    console.log(data);
+    // console.log(data);
 });
 
-document.getElementById("get-quote").addEventListener("click", () => {
+document.getElementById("button").addEventListener("click", () => {
     const num = Math.floor(Math.random() * quotes.length);
-    console.log(num);
-    const q = document.getElementById("quote");
-    const a = document.getElementById("author");
+    // console.log(num);
     const quote = quotes[num].text;
     const author = quotes[num].author === null ? "unkown" : quotes[num].author;
     q.innerHTML = `"${quote}"`;
     a.innerHTML = author;
-    console.log(quotes);
+    // console.log(quotes);
 });
